@@ -1,0 +1,44 @@
+#include<stdio.h>
+
+void main(){
+    double valor, tempoTrimestres;
+			printf("Indique o valor:");
+			scanf("%lf", &valor);
+			printf("Indique o número de trimestres:");
+			scanf(" %lf", &tempoTrimestres);
+			double imposto = (0.72);
+			double taxaJuros = (0.03 + 0.01); /*Nesta linha o 0.03 pode ir de 0 a 0.035 muda todos os meses então todos os meses a taxa de juro ´r diferente eu tenho a 0.03*/
+			int i = 1;
+			do {
+				if (i < 8)
+				{
+					valor *= (1 + (taxaJuros * imposto));
+				}
+				else if(i>=8 && i < 20)
+				{
+                    valor *= (1 + (taxaJuros * imposto));
+					if (i % 4 == 0)
+					{
+						taxaJuros += 0.005;
+					}
+                    
+                }
+				else if(i>=20 )
+				{
+                    valor *= (1 + (taxaJuros * imposto));
+					if(i%4 == 0)
+					{
+						taxaJuros += 0.01;
+					}
+                    
+					if (i >= 40){
+                        //Console.WriteLine("Why don't you exit?");
+						break;
+                    }
+                }
+                
+			} while((i++)<tempoTrimestres);
+			printf("%lf\n",valor);
+            return ;
+
+}
